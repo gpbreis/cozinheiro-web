@@ -9,6 +9,7 @@
           <th data-field="td-phone">Telefone</th>
           <th data-field="td-mail">E-mail</th>
           <th data-field="td-priority">Prioritário</th>
+          <th data-field="td-events" *ngIf="contratante.events.length > 0">Qt. Eventos</th>
           <th>Ação</th>
         </tr>
       </thead>
@@ -20,6 +21,7 @@
           <td>{{contratante.phone}}</td>
           <td>{{contratante.email}}</td>
           <td>{{contratante.priority}}</td>
+          <td *ngIf="contratante.events.length > 0">{{contratante.events.length}}</td>
           <td>
             <button class="waves-effect waves-light blue btn-small" (click)="edit(contratante.id)">Editar</button>
             <button class="waves-effect waves-light red btn-small">Apagar</button>
@@ -29,4 +31,5 @@
     </table>
   </div>
 </div>
+<a class="btn-floating btn-small waves-effect waves-light red" routerLink="/contratante"><i class="material-icons">add</i></a>
 <app-detalha-contratante #clicado></app-detalha-contratante>

@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="row">
-    <form class="col s12" (submit)="onSubmit()">
+    <form class="col s12" #form="ngForm" (submit)="onSubmit()">
       <div class="input-field col s12">
         <i class="material-icons prefix">account_circle</i>
         <input
@@ -30,7 +30,7 @@
         />
         <span
           class="helper-text"
-          data-error="O campo é inválido"
+          data-error="O nome é inválido, necessários ao menos dois nomes iniciando com letras maiúsculas."
           data-success="Ok!"
         ></span>
         <label for="name" class="active">Nome Completo</label>
@@ -40,16 +40,23 @@
       <div class="input-field col s12">
         <i class="material-icons prefix">contact_phone</i>
         <input
-          id="input-phone"
-          name="phone"
+          id="phone"
+          name="input-phone"
           type="text"
           [(ngModel)]="this.contratante.phone"
           prefix="+55 "
           [showMaskTyped]="true"
-          mask="(99) 9999-9999"
+          mask="(00) 0000-0000"
+          class="validate"
+          minlength="10"
           required
         />
         <label for="phone" class="active">Número de telefone</label>
+        <span
+          class="helper-text"
+          data-error="Não é um telefone válido, são necessários 10 dígitos."
+          data-success="Ok!"
+        ></span>
       </div>
 
       <div class="input-field col s12">
@@ -60,10 +67,17 @@
           type="email"
           [(ngModel)]="this.contratante.email"
           class="validate"
+          ngModel [email]="true"
+          required
         />
         <label for="email" class="active">Email</label>
+        <span
+          class="helper-text"
+          data-error="O e-mail informado é inválido."
+          data-success="Ok!"
+        ></span>
       </div>
-      <button class="btn waves-effect waves-light" type="submit">Cadastrar
+      <button class="btn waves-effect waves-light" type="submit" [disabled]="!form.valid">Cadastrar
         <i class="material-icons right">send</i>
       </button>
     </form>
