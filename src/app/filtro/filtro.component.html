@@ -1,12 +1,18 @@
-<div>
+<div #filtro>
     <span>Filtro: </span>
 
-    <input name="filtr" type="radio" value="All">
-    <span>{{'Todos('+all+')'}}</span>
+    <label for="all">
+        <input id="all" type="radio" name="filtro" value="All">
+        <span>{{'Todos ('+all+')'}}</span>
+    </label>
 
-    <input type="radio" name="filtr" value="isPriority">
-    <span>{{'Prioritários('+isPriority+')'}}</span>
+    <label for="isPriority">
+        <input id="isPriority" type="radio" name="filtro" value="isPriority">
+        <span>{{'Prioritários ('+isPriority+')'}}</span>
+    </label>
 
-    <input type="radio" name="filtr" value="notPriority">
-    <span>{{'Não Prioritários('+notPriority+')'}}</span>
+    <label for="notPriority">
+        <input id="notPriority" type="radio" name="filtro" value="notPriority">
+        <span>{{'Não Prioritários ('+notPriority+')'}}</span>
+    </label>
 </div>

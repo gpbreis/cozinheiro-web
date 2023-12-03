@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Contratante } from '../model/contratante';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contratante',
@@ -8,15 +9,24 @@ import { Contratante } from '../model/contratante';
 })
 export class ContratanteComponent implements OnInit {
   validateMessage: string = '';
-  name: string = '';
   nameInvalid: boolean = false;
 
-  contratante!: Contratante;
+  contratante: Contratante = new Contratante();
+  contratantes: Contratante[] = [];
+  name = this.contratante.name;
 
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
       this.validateMessage = '';
+      let idParam = this.route.snapshot.params['id'];
+      this.contratantes = this.contratante.populaTabela();
+      let editing: boolean = false;
+
+      if(idParam != null) {
+        let id = idParam;
+        this.contratante = this.contratantes.find(contratante => contratante.id == id)!;
+      }
   }
 
   onSubmit() {

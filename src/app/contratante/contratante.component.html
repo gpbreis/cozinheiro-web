@@ -20,53 +20,52 @@
       <div class="input-field col s12">
         <i class="material-icons prefix">account_circle</i>
         <input
-          id="input-name"
+          id="name"
           name="input-name"
           type="text"
           class="validate"
-          [(ngModel)]="this.name"
+          [(ngModel)]="this.contratante.name"
           pattern="^(\s?[A-ZÀ-Ú][a-zà-ú]*)+(\s[a-zà-ú]*)?(\s[A-ZÀ-Ú][a-zà-ú]*)+"
           required
         />
-        <label for="input-name" class="active">Nome Completo</label>
-        <p>Tamanho: {{this.name.length}}</p>
         <span
           class="helper-text"
           data-error="O campo é inválido"
           data-success="Ok!"
         ></span>
+        <label for="name" class="active">Nome Completo</label>
+        <p>Tamanho: {{this.contratante.name.length}}</p>
       </div>
 
       <div class="input-field col s12">
         <i class="material-icons prefix">contact_phone</i>
         <input
           id="input-phone"
-          name="input-phone"
+          name="phone"
           type="text"
+          [(ngModel)]="this.contratante.phone"
           prefix="+55 "
           [showMaskTyped]="true"
           mask="(99) 9999-9999"
           required
         />
-        <label for="input-phone" class="active">Número de telefone</label>
+        <label for="phone" class="active">Número de telefone</label>
       </div>
 
       <div class="input-field col s12">
         <i class="material-icons prefix">contact_mail</i>
         <input
-          id="input-email"
+          id="email"
           name="input-email"
           type="email"
+          [(ngModel)]="this.contratante.email"
           class="validate"
         />
-        <label for="input-email" class="active">Email</label>
+        <label for="email" class="active">Email</label>
       </div>
       <button class="btn waves-effect waves-light" type="submit">Cadastrar
         <i class="material-icons right">send</i>
       </button>
     </form>
-  </div>
-  <div class="row">
-    <app-lista-contratantes></app-lista-contratantes>
   </div>
 </div>

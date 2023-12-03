@@ -6,6 +6,7 @@ import { ListaContratantesComponent } from './lista-contratantes/lista-contratan
 import { EventoComponent } from './evento/evento.component';
 import { ListaEventosComponent } from './lista-eventos/lista-eventos.component';
 import { FiltroComponent } from './filtro/filtro.component';
+import { DetalhaContratanteComponent } from './detalha-contratante/detalha-contratante.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -13,7 +14,9 @@ const routes: Routes = [
   { path: 'lista-contratante', component: ListaContratantesComponent},
   { path: 'evento', component: EventoComponent},
   { path: 'lista-evento', component: ListaEventosComponent},
-  { path: 'filtro', component: FiltroComponent}
+  { path: 'filtro', component: FiltroComponent},
+  { path: 'contratante/visualizar/:id', component: DetalhaContratanteComponent},
+  { path: 'contratante/editar/:id', component: ContratanteComponent}
 ];
 
 @NgModule({

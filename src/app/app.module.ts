@@ -14,6 +14,7 @@ import { ListaContratantesComponent } from './lista-contratantes/lista-contratan
 import { EventoComponent } from './evento/evento.component';
 import { ListaEventosComponent } from './lista-eventos/lista-eventos.component';
 import { FiltroComponent } from './filtro/filtro.component';
+import { DetalhaContratanteComponent } from './detalha-contratante/detalha-contratante.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FiltroComponent } from './filtro/filtro.component';
     ListaContratantesComponent,
     EventoComponent,
     ListaEventosComponent,
-    FiltroComponent
+    FiltroComponent,
+    DetalhaContratanteComponent
   ],
   imports: [
     BrowserModule,

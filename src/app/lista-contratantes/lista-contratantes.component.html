@@ -1,4 +1,4 @@
-<app-filtro [all]="totalContratantes" [isPriority]="totalPriority" [notPriority]="totalNotPriority"></app-filtro>
+<app-filtro [all]="totalContratantes" [isPriority]="totalPriority" [notPriority]="totalNotPriority" #filtro></app-filtro>
 <div class="row">
   <div class="col s12 m6 l12 offset-m3">
     <table class="highlight centered responsive-table">
@@ -13,14 +13,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let contratante of contratantes">
+        <tr *ngFor="let contratante of contratantes"
+          routerLink="['/contratante/visualizar', contratante.id]">
           <td>{{contratante.id}}</td>
           <td>{{contratante.name}}</td>
           <td>{{contratante.phone}}</td>
-          <td>{{contratante.mail}}</td>
-          <td>{{contratante.isPriority}}</td>
+          <td>{{contratante.email}}</td>
+          <td>{{contratante.priority}}</td>
           <td>
-            <button class="waves-effect waves-light blue btn-small">Editar</button>
+            <button class="waves-effect waves-light blue btn-small" (click)="edit(contratante.id)">Editar</button>
             <button class="waves-effect waves-light red btn-small">Apagar</button>
           </td>
         </tr>
@@ -28,3 +29,4 @@
     </table>
   </div>
 </div>
+<app-detalha-contratante #clicado></app-detalha-contratante>

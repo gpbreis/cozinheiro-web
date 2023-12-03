@@ -1,14 +1,26 @@
-<div class="navbar-fixed">
+<div class="navbar-fixed" style="z-index: 1001 !important">
   <nav>
     <div class="nav-wrapper">
-      <a routerLink="" class="brand-logo"
-        ><i class="material-icons">local_dining</i>Cozinheiro</a
-      >
-      <ul class="right hide-on-med-and-down">
-        <li><a routerLink="">HOME</a></li>
-        <li><a routerLink="lista-contratante">Contratantes</a></li>
-        <li><a routerLink="lista-evento">Eventos</a></li>
-      </ul>
+      <div class="container">
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+          <i class="material-icons">menu</i>
+        </a>
+        <a routerLink="" class="brand-logo"
+          ><i class="material-icons">local_dining</i>Cozinheiro</a
+        >
+        <ul class="right hide-on-med-and-down">
+          <li><a routerLink="">HOME</a></li>
+          <li><a routerLink="lista-contratante">Contratantes</a></li>
+          <li><a routerLink="lista-evento">Eventos</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
+  <ul class="sidenav" id="mobile-demo" #mobile>
+    <div>
+      <li><a routerLink="">HOME</a></li>
+      <li><a routerLink="lista-contratante">Contratantes</a></li>
+      <li><a routerLink="lista-evento">Eventos</a></li>
+    </div>
+  </ul>
 </div>

@@ -1,4 +1,7 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
+import { Contratante } from './../model/contratante';
+import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { DetalhaContratanteComponent } from '../detalha-contratante/detalha-contratante.component';
 
 @Component({
   selector: 'app-lista-contratantes',
@@ -7,53 +10,33 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 })
 export class ListaContratantesComponent implements OnInit, OnChanges{
 
-  contratantes = [
-    {
-      id: 1,
-      name: "Gustavo Breis",
-      phone: "4499998888",
-      mail: "gpbreis@gmail.com",
-      isPriority: false
-    },
-    {
-      id: 2,
-      name: "Claudia Regina",
-      phone: "4477776666",
-      mail: "cregina@gmail.com",
-      isPriority: true
-    },
-    {
-      id: 3,
-      name: "Lanna",
-      phone: "4466665555",
-      mail: "lanna@gmail.com",
-      isPriority: true
-    },
-    {
-      id: 4,
-      name: "Naomi",
-      phone: "4455554444",
-      mail: "naomi@gmail.com",
-      isPriority: true
-    },
-    {
-      id: 5,
-      name: "Channel",
-      phone: "4444443333",
-      mail: "channel@gmail.com",
-      isPriority: false
-    }
-  ];
+  contratante: Contratante = new Contratante();
+  contratantes: Contratante[] = [];
 
-  totalContratantes = this.contratantes.length;
-  totalPriority = this.contratantes.filter( p => p.isPriority === true).length;
-  totalNotPriority = this.contratantes.filter( p => p.isPriority === false).length;
+  totalContratantes: number = 0;
+  totalPriority: number = 0;
+  totalNotPriority: number = 0;
+
+  @ViewChild('clicado') detalhe!: DetalhaContratanteComponent;
+
+  constructor(private router: Router){}
 
   ngOnInit(): void {
-      
+      this.contratantes = this.contratante.populaTabela();
+      this.totalContratantes = this.contratantes.length;
+      this.totalPriority = this.contratantes.filter( p => p.priority === true).length;
+      this.totalNotPriority = this.contratantes.filter( p => p.priority === false).length;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-      
+
+  }
+
+  onClickItem(contratante: Contratante) {
+    
+  }
+
+  edit(id: number) {
+    this.router.navigate(['contratante/editar', id]);
   }
 }
