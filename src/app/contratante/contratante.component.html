@@ -24,12 +24,12 @@
           name="input-name"
           type="text"
           class="validate"
-          [(ngModel)]="this.nameSize"
+          [(ngModel)]="this.name"
           pattern="^(\s?[A-ZÀ-Ú][a-zà-ú]*)+(\s[a-zà-ú]*)?(\s[A-ZÀ-Ú][a-zà-ú]*)+"
           required
         />
         <label for="input-name" class="active">Nome Completo</label>
-        <p>Tamanho: {{this.nameSize.length}}</p>
+        <p>Tamanho: {{this.name.length}}</p>
         <span
           class="helper-text"
           data-error="O campo é inválido"
@@ -65,5 +65,8 @@
         <i class="material-icons right">send</i>
       </button>
     </form>
+  </div>
+  <div class="row">
+    <app-lista-contratantes></app-lista-contratantes>
   </div>
 </div>

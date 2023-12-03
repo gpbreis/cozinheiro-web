@@ -9,13 +9,23 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { HomeComponent } from './home/home.component';
+import { ListaContratantesComponent } from './lista-contratantes/lista-contratantes.component';
+import { EventoComponent } from './evento/evento.component';
+import { ListaEventosComponent } from './lista-eventos/lista-eventos.component';
+import { FiltroComponent } from './filtro/filtro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContratanteComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    ListaContratantesComponent,
+    EventoComponent,
+    ListaEventosComponent,
+    FiltroComponent
   ],
   imports: [
     BrowserModule,
