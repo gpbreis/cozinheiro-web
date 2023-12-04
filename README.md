@@ -33,7 +33,7 @@ Criação de sistema para controle de eventos de um(a) cozinheiro(a) autônomo(a
 - [x] Utilizar o armazenamento local (LocalStorage ou SessionStorage) para armazenar dados temporários, quando necessário.
 - [x] Aplicar a diretiva estrutural ngFor para apresentar uma lista dinâmica de dados em seu aplicativo.
 - [x] Utilizar a diretiva ngIf para controlar a exibição ou ocultação de elementos com base em condições específicas.
-- [ ] Formatar a apresentação de dados com Pipes, de acordo com os requisitos do aplicativo.
+- [x] Formatar a apresentação de dados com Pipes, de acordo com os requisitos do aplicativo.
 - [ ] Executar o processo de build da aplicação e realizar o deploy para tornar o aplicativo acessível online.
 
 ## Manual de execução

@@ -18,8 +18,8 @@
           routerLink="['/contratante/visualizar', contratante.id]">
           <td>{{contratante.id}}</td>
           <td>{{contratante.name}}</td>
-          <td>{{contratante.phone}}</td>
-          <td>{{contratante.email}}</td>
+          <td>{{contratante.phone | mask:"(00) 0000-0000"}}</td>
+          <td>{{contratante.email | uppercase}}</td>
           <td>{{contratante.priority}}</td>
           <td *ngIf="contratante.events.length > 0">{{contratante.events.length}}</td>
           <td>
