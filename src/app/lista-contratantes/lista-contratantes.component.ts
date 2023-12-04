@@ -1,3 +1,4 @@
+import { ContratanteService } from './../contratante/contratante.service';
 import { Router } from '@angular/router';
 import { Contratante } from './../model/contratante';
 import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
@@ -19,17 +20,25 @@ export class ListaContratantesComponent implements OnInit, OnChanges{
 
   @ViewChild('clicado') detalhe!: DetalhaContratanteComponent;
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private contratanteService: ContratanteService){}
 
   ngOnInit(): void {
-      this.contratantes = this.contratante.populaTabela();
+    this.atualizarLocal();
+      //this.contratantes = this.contratante.populaTabela();
       this.totalContratantes = this.contratantes.length;
       this.totalPriority = this.contratantes.filter( p => p.priority === true).length;
       this.totalNotPriority = this.contratantes.filter( p => p.priority === false).length;
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  atualizarLocal() {
+    this.contratanteService.getContratantes().then(contratantes => this.contratantes = contratantes).catch(erro => console.log(erro));
+  }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    this.atualizarLocal();
+    this.totalContratantes = this.contratantes.length;
+    this.totalPriority = this.contratantes.filter( p => p.priority === true).length;
+    this.totalNotPriority = this.contratantes.filter( p => p.priority === false).length;
   }
 
   onClickItem(contratante: Contratante) {
@@ -38,5 +47,12 @@ export class ListaContratantesComponent implements OnInit, OnChanges{
 
   edit(id: number) {
     this.router.navigate(['contratante/editar', id]);
+  }
+
+  delete(id: number) {
+    let del = window.confirm("Confirma a exclusão do contratante?");
+    if(del) {
+      this.contratanteService.delete(id).then(c => this.atualizarLocal()).catch(erro => console.log(erro));
+    }
   }
 }

@@ -19,6 +19,8 @@ export class ContratanteComponent implements OnInit, OnChanges {
   name: string = '';
 
   isSubmitted!: boolean;
+  editMode: boolean = false;
+
 
   @ViewChild('form') form!: NgForm;
 
@@ -28,16 +30,21 @@ export class ContratanteComponent implements OnInit, OnChanges {
     Shared.initializeWebStorage();
       this.validateMessage = '';
       let idParam = this.route.snapshot.params['id'];
-      this.contratantes = this.contratanteService.getContratantes();
-      let editing: boolean = false;
+
+      this.atualizarLocal();
 
       this.contratante = new Contratante();
       this.name = this.contratante.name;
 
       if(idParam != null) {
         let id = idParam;
-        this.contratante = this.contratantes.find(contratante => contratante.id == id)!;
+        this.contratanteService.findById(id).then(contratante => this.contratante = contratante).catch(erro => console.log(erro));
+        this.editMode = true
       }
+  }
+
+  atualizarLocal() {
+    this.contratanteService.getContratantes().then(contratantes => this.contratantes = contratantes).catch(erro => console.log(erro));
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -47,15 +54,25 @@ export class ContratanteComponent implements OnInit, OnChanges {
   onSubmit() {
       this.isSubmitted = true;
 
+      if(this.editMode) {
+        this.contratanteService.update(this.contratante).then(m => this.validateMessage = 'Usuário atualizado no WebStorage/Json-Server').catch(erro => console.log(erro));
+      } else {
+        this.contratanteService.save(this.contratante).then(m => this.validateMessage = 'Usuário salvo no WebStorage/Json-Server').catch(erro => console.log(erro));
+      }
+
       if(this.contratanteService.isExist(this.contratante.id.toString())){
         this.contratanteService.save(this.contratante);
         this.validateMessage = 'Usuário já existe no WebStorage'
       } else {
         this.contratanteService.update(this.contratante);
-        this.validateMessage = 'Usuário atualizado no WebStorage'
+        this.validateMessage = 'Usuário atualizado no WebStorage/Json-Server'
       }
 
       this.nameInvalid = false;
       
+  }
+
+  save(): void {
+    
   }
 }

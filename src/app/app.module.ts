@@ -16,6 +16,8 @@ import { ListaEventosComponent } from './lista-eventos/lista-eventos.component';
 import { FiltroComponent } from './filtro/filtro.component';
 import { DetalhaContratanteComponent } from './detalha-contratante/detalha-contratante.component';
 
+import { HttpClientModule } from '@angular/common/http'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import { DetalhaContratanteComponent } from './detalha-contratante/detalha-contr
     AppRoutingModule,
     FormsModule,
     NgxMaskDirective,
-    NgxMaskPipe
+    NgxMaskPipe,
+    HttpClientModule,
   ],
   providers: [provideNgxMask()],
   bootstrap: [AppComponent]

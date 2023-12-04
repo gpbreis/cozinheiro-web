@@ -1,0 +1,70 @@
+{
+  "contratantes": [
+    {
+      "id": 1,
+      "name": "Gustavo Breis",
+      "phone": "4499998888",
+      "email": "gpbreis@gmail.com",
+      "priority": false,
+      "events": []
+    },
+    {
+      "id": 2,
+      "name": "Claudia Regina",
+      "phone": "4488887777",
+      "email": "claudia@gmail.com",
+      "priority": true,
+      "events": []
+    },
+    {
+      "id": 3,
+      "name": "Lanna",
+      "phone": "4477776666",
+      "email": "lanna@gmail.com",
+      "priority": true,
+      "events": []
+    },
+    {
+      "id": 4,
+      "name": "Naomi",
+      "phone": "4466665555",
+      "email": "naomi@gmail.com",
+      "priority": true,
+      "events": []
+    },
+    {
+      "id": 5,
+      "name": "Channel S",
+      "phone": "4455554444",
+      "email": "channel@gmail.com",
+      "priority": true,
+      "events": [
+        1
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Novo Regino",
+      "phone": "4488887777",
+      "email": "nr@gmail.com",
+      "priority": false,
+      "events": []
+    },
+    {
+      "id": 9,
+      "name": "Teste",
+      "phone": "4488887777",
+      "email": "nr@gmail.com",
+      "priority": true,
+      "events": []
+    },
+    {
+      "id": 250,
+      "name": "Dsetts str D",
+      "phone": "2222222222",
+      "email": "gpbreis@3",
+      "priority": false,
+      "events": []
+    }
+  ]
+}

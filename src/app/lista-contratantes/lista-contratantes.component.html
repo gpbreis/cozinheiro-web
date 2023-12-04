@@ -24,7 +24,7 @@
           <td *ngIf="contratante.events.length > 0">{{contratante.events.length}}</td>
           <td>
             <button class="waves-effect waves-light blue btn-small" (click)="edit(contratante.id)">Editar</button>
-            <button class="waves-effect waves-light red btn-small">Apagar</button>
+            <button class="waves-effect waves-light red btn-small" (click)="delete(contratante.id)">Apagar</button>
           </td>
         </tr>
       </tbody>
@@ -32,4 +32,3 @@
   </div>
 </div>
 <a class="btn-floating btn-small waves-effect waves-light red" routerLink="/contratante"><i class="material-icons">add</i></a>
-<app-detalha-contratante #clicado></app-detalha-contratante>

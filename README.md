@@ -27,9 +27,9 @@ Criação de sistema para controle de eventos de um(a) cozinheiro(a) autônomo(a
 - [x] Validar os campos do formulário com expressões regulares (REGEX) e apresentar as mensagens de erro.
 - [x] Implementar máscaras em campos de formulário, quando necessário, para melhorar a experiência do usuário ao inserir dados.
 - [x] Desabilitar o botão de envio (submit) enquanto o formulário estiver em um estado inválido.
-- [ ] Realizar requisições à API com tratamento adequado das respostas de sucesso e erro com Promises.
+- [X] Realizar requisições à API com tratamento adequado das respostas de sucesso e erro com Promises.
 - [ ] Realizar requisições à API com tratamento adequado das respostas de sucesso e erro com Observables.
-- [ ] Criar o cadastro completo de uma entidade, incluindo operações de criação, leitura, atualização e exclusão (CRUD) utilizando uma API, como o JSON Server.
+- [X] Criar o cadastro completo de uma entidade, incluindo operações de criação, leitura, atualização e exclusão (CRUD) utilizando uma API, como o JSON Server.
 - [x] Utilizar o armazenamento local (LocalStorage ou SessionStorage) para armazenar dados temporários, quando necessário.
 - [x] Aplicar a diretiva estrutural ngFor para apresentar uma lista dinâmica de dados em seu aplicativo.
 - [x] Utilizar a diretiva ngIf para controlar a exibição ou ocultação de elementos com base em condições específicas.
